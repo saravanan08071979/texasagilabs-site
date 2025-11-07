@@ -52,7 +52,7 @@ export default function Home(){
         name: 'OMEGA',
         model: 'B1',
         mission: 'Robust Cognition',
-        spec: 'General reasoning under uncertainty & stress'
+        spec: 'General reasoning under uncertainty & stress',
         status: 'R-1',
       },
      
