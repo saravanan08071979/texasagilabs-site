@@ -1,4 +1,5 @@
 // components/Header.jsx
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Header() {
@@ -6,16 +7,19 @@ export default function Header() {
     <header className="sticky top-0 z-50 backdrop-blur-md bg-black/40 border-b border-white/6">
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center font-bold">
-            TA
-          </div>
+         <Image
+          src="/texasagilabs-logo.png"
+          alt="Texas AGI Labs Logo"
+          width={48}
+          height={48}
+          className="rounded-md"
+          priority
+         />
           <div>
-            <div className="font-semibold text-white">Texas AGI Labs</div>
-            <div className="text-xs text-slate-400">
-              Engineering Superintelligence That Works
-            </div>
-          </div>
-        </div>
+           <div className="font-semibold">{BRAND.name}</div>
+           <div className="text-xs text-slate-300">{BRAND.tagline}</div>
+         </div>
+       </div>
 
         <nav className="hidden md:flex gap-6 text-sm text-slate-300">
           <Link href="/">Home</Link>
