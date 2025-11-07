@@ -32,9 +32,10 @@ export default function Header() {
           <a href="#" className="px-4 py-2 bg-white/6 rounded-md text-sm">
             Request Access
           </a>
-          <a href="#" className="px-4 py-2 border border-white/6 rounded-md text-sm">
-            Contact
-          </a>
+          <Link href="/contact" className="px-4 py-2 border border-white/6 rounded-md text-sm">
+           Contact
+          </Link>
+         </a>
         </div>
       </div>
     </header>
