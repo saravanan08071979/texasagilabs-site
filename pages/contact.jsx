@@ -3,61 +3,56 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-// TODO: Replace with your real Web3form  endpoint, e.g.:
-//const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-//const WEB3FORMS_APIKEY   = "your_web3forms_api_key";
-   const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-   const WEB3FORMS_APIKEY   = "c9c85691-9980-4120-ac1b-0d652d611d11";
+// Replace with your real Web3Forms key
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const WEB3FORMS_APIKEY = "c9c85691-9980-4120-ac1b-0d652d611d11"; // 👈 paste your key here
 
 export default function Contact() {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
 
-async function handleSubmit(e) {
-  e.preventDefault();
-  setStatus('submitting');
-  setError(null);
+  async function handleSubmit(e) {
+    e.preventDefault();
+    setStatus('submitting');
+    setError(null);
 
-  const form = e.currentTarget;
-  const formData = new FormData(form);
+    const form = e.currentTarget;
+    const formData = new FormData(form);
 
-  // Build JSON payload for Web3Forms
-  const payload = {
-    api_key: WEB3FORMS_APIKEY,
-    name     : formData.get('name'),
-    email    : formData.get('email'),
-    subject  : formData.get('topic'),
-    message  : formData.get('message'),
-    // you can add more fields if you like:
-    redirect: '', // optional redirect URL post submission
-    data     : { category: formData.get('topic') }
-  };
+    const payload = {
+      access_key: WEB3FORMS_APIKEY,
+      name: formData.get('name'),
+      email: formData.get('email'),
+      subject: formData.get('topic'),
+      message: formData.get('message'),
+    };
 
-  try {
-    const res = await fetch(WEB3FORMS_ENDPOINT, {
-      method : 'POST',
-      headers: { "Content-Type": "application/json" },
-      body   : JSON.stringify(payload)
-    });
+    try {
+      const res = await fetch(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+      });
 
-    if (res.ok) {
-      setStatus('success');
-      form.reset();
-    } else {
+      const data = await res.json();
+
+      if (res.ok) {
+        setStatus('success');
+        form.reset();
+      } else {
+        setStatus('error');
+        setError(data.message || 'Submission failed. Please try again.');
+      }
+    } catch (err) {
       setStatus('error');
-      setError('Submission failed. Please try again.');
+      setError('Network error. Please try again.');
     }
-  } catch(err) {
-    setStatus('error');
-    setError('Network error. Please try again.');
   }
-}
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 antialiased">
       <Header />
       <main className="max-w-5xl mx-auto px-6 py-16">
-        {/* Hero */}
         <section>
           <p className="text-xs font-mono tracking-[0.2em] text-blue-500 uppercase">
             Contact
@@ -66,41 +61,27 @@ async function handleSubmit(e) {
             Get in Touch with Texas AGI Labs
           </h1>
           <p className="mt-4 text-slate-600 max-w-3xl">
-            Use this channel for partnership inquiries, research collaboration,
-            press, or early access to ALPHA, OMEGA, and NOVA. Messages are
-            routed to the appropriate internal team.
+            Use this channel for partnerships, collaborations, or early access requests. Messages are routed to the relevant team.
           </p>
         </section>
 
-        {/* Category hints */}
+        {/* Info cards */}
         <section className="mt-10 grid gap-4 md:grid-cols-3 text-sm">
           <div className="bg-white border border-blue-100 rounded-xl p-4">
-            <h2 className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
-              General
-            </h2>
-            <p className="mt-2 text-slate-600">
-              Questions about Texas AGI Labs, roadmap, or speaking.
-            </p>
+            <h2 className="text-xs font-semibold text-blue-600 uppercase tracking-wide">General</h2>
+            <p className="mt-2 text-slate-600">Questions about Texas AGI Labs, roadmap, or speaking.</p>
           </div>
           <div className="bg-white border border-blue-100 rounded-xl p-4">
-            <h2 className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
-              Research & Partnerships
-            </h2>
-            <p className="mt-2 text-slate-600">
-              Safety evaluations, joint benchmarks, or integration pilots.
-            </p>
+            <h2 className="text-xs font-semibold text-blue-600 uppercase tracking-wide">Research & Partnerships</h2>
+            <p className="mt-2 text-slate-600">Collaborations, benchmarks, or safety evaluations.</p>
           </div>
           <div className="bg-white border border-blue-100 rounded-xl p-4">
-            <h2 className="text-xs font-semibold text-blue-600 uppercase tracking-wide">
-              Careers
-            </h2>
-            <p className="mt-2 text-slate-600">
-              Early hiring interest for technical and operations roles.
-            </p>
+            <h2 className="text-xs font-semibold text-blue-600 uppercase tracking-wide">Careers</h2>
+            <p className="mt-2 text-slate-600">Hiring and research fellowships.</p>
           </div>
         </section>
 
-        {/* Form */}
+        {/* Contact form */}
         <section className="mt-12 mb-10">
           <form
             onSubmit={handleSubmit}
@@ -114,7 +95,7 @@ async function handleSubmit(e) {
                 <input
                   name="name"
                   required
-                  className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/70"
+                  className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500/70"
                 />
               </div>
               <div>
@@ -125,7 +106,7 @@ async function handleSubmit(e) {
                   name="email"
                   type="email"
                   required
-                  className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/70"
+                  className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500/70"
                 />
               </div>
             </div>
@@ -136,7 +117,7 @@ async function handleSubmit(e) {
               </label>
               <select
                 name="topic"
-                className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-blue-500/70"
+                className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm bg-white focus:ring-2 focus:ring-blue-500/70"
                 defaultValue="General"
               >
                 <option>General</option>
@@ -155,7 +136,7 @@ async function handleSubmit(e) {
                 name="message"
                 required
                 rows={5}
-                className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm resize-y focus:outline-none focus:ring-2 focus:ring-blue-500/70"
+                className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm resize-y focus:ring-2 focus:ring-blue-500/70"
                 placeholder="Provide as much relevant detail as you can."
               />
             </div>
@@ -169,13 +150,13 @@ async function handleSubmit(e) {
                 {status === 'submitting' ? 'Sending…' : 'Send Message'}
               </button>
               <p className="text-[10px] text-slate-500">
-                Replace the endpoint in this code with your own Formspree URL.
+                Connected to Web3Forms API
               </p>
             </div>
 
             {status === 'success' && (
               <p className="text-xs text-green-600 mt-2">
-                Message sent. We’ll reply if it matches our current focus.
+                ✅ Message sent successfully! We’ll respond soon.
               </p>
             )}
             {status === 'error' && (
