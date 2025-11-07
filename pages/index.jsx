@@ -55,7 +55,7 @@ export default function Home(){
         spec: 'General reasoning under uncertainty & stress',
         status: 'R-1',
       },
-     
+      {
         name: 'NOVA',
         model: 'C1',
         mission: 'Scalable Agent Integration',
