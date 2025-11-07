@@ -20,6 +20,7 @@ export default function Header() {
         <nav className="hidden md:flex gap-6 text-sm text-slate-300">
           <Link href="/">Home</Link>
           <Link href="/about">About</Link>
+          <Link href="/research">Research</Link>
           <Link href="/safety">Safety</Link>
           <Link href="/models/alpha">ALPHA</Link>
           <Link href="/models/omega">OMEGA</Link>
@@ -28,12 +29,10 @@ export default function Header() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <a href="#"
-             className="px-4 py-2 bg-white/6 rounded-md text-sm">
+          <a href="#" className="px-4 py-2 bg-white/6 rounded-md text-sm">
             Request Access
           </a>
-          <a href="#"
-             className="px-4 py-2 border border-white/6 rounded-md text-sm">
+          <a href="#" className="px-4 py-2 border border-white/6 rounded-md text-sm">
             Contact
           </a>
         </div>
