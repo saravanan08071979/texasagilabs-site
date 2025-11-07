@@ -1,5 +1,10 @@
 // components/Header.jsx
 import Image from 'next/image';
+ const BRAND = {
+  name: 'Texas AGI Labs',
+  tagline: 'Pioneering Safe Artificial General Intelligence Research',
+  logoAlt: 'Texas AGI Labs logo',
+};
 import Link from 'next/link';
 
 export default function Header() {
