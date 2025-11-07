@@ -3,41 +3,55 @@ import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 
-// TODO: Replace with your real Formspree endpoint, e.g.:
-// const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwkajxyz";
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvgvenno";
+// TODO: Replace with your real Web3form  endpoint, e.g.:
+//const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+//const WEB3FORMS_APIKEY   = "your_web3forms_api_key";
+   const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+   const WEB3FORMS_APIKEY   = "c9c85691-9980-4120-ac1b-0d652d611d11";
 
 export default function Contact() {
   const [status, setStatus] = useState('idle');
   const [error, setError] = useState(null);
 
-  async function handleSubmit(e) {
-    e.preventDefault();
-    setStatus('submitting');
-    setError(null);
+async function handleSubmit(e) {
+  e.preventDefault();
+  setStatus('submitting');
+  setError(null);
 
-    const form = e.currentTarget;
-    const formData = new FormData(form);
+  const form = e.currentTarget;
+  const formData = new FormData(form);
 
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { Accept: 'application/json' },
-        body: formData,
-      });
+  // Build JSON payload for Web3Forms
+  const payload = {
+    api_key: WEB3FORMS_APIKEY,
+    name     : formData.get('name'),
+    email    : formData.get('email'),
+    subject  : formData.get('topic'),
+    message  : formData.get('message'),
+    // you can add more fields if you like:
+    redirect: '', // optional redirect URL post submission
+    data     : { category: formData.get('topic') }
+  };
 
-      if (res.ok) {
-        setStatus('success');
-        form.reset();
-      } else {
-        setStatus('error');
-        setError('Something went wrong. Please try again or email us directly.');
-      }
-    } catch {
+  try {
+    const res = await fetch(WEB3FORMS_ENDPOINT, {
+      method : 'POST',
+      headers: { "Content-Type": "application/json" },
+      body   : JSON.stringify(payload)
+    });
+
+    if (res.ok) {
+      setStatus('success');
+      form.reset();
+    } else {
       setStatus('error');
-      setError('Network error. Please try again or email us directly.');
+      setError('Submission failed. Please try again.');
     }
+  } catch(err) {
+    setStatus('error');
+    setError('Network error. Please try again.');
   }
+}
 
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 antialiased">
