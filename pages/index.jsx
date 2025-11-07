@@ -7,8 +7,8 @@ export default function Home(){
     <div className="min-h-screen bg-white text-slate-900 antialiased">
       <Header/>
       <main className="max-w-7xl mx-auto px-6 py-16">
-        <section className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 border border-white/6 p-8 lg:p-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <section className="relative rounded-2xl overflow-hidden bg-white border border-slate-200 p-8 lg:p-12">
+          <div className="bg-white border border-slate-200 rounded-lg p-6 shadow-sm">
             <div>
               <h1 className="text-4xl lg:text-6xl font-extrabold leading-tight">Building Trusted AGI Systems for the World</h1>
               <p className="mt-4 text-slate-300 max-w-xl">Researching and aligning AGI systems to unlock progress while ensuring long‑term safety and global benefit.</p>
@@ -19,7 +19,7 @@ export default function Home(){
               <div className="mt-6 text-slate-400 text-sm">Live countdown: <span className="font-mono">T‑72:04:21</span></div>
             </div>
             <div className="relative">
-              <div className="aspect-video rounded-xl overflow-hidden bg-gradient-to-tr from-slate-700/40 to-transparent">
+              <div className="aspect-video rounded-xl overflow-hidden bg-white border border-slate-200 rounded-lg p-6 shadow-sm">
                 <div className="flex h-full items-center justify-center text-slate-500 select-none">[AI Neural Network Visualization]</div>
               </div>
             </div>
@@ -39,7 +39,7 @@ export default function Home(){
     AGI Systems
   </h2>
 
-  <div className="relative mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+  <div className="bg-white border border-slate-200 rounded-lg p-6 shadow-sm">
     {[
       {
         name: 'ALPHA',
@@ -52,10 +52,10 @@ export default function Home(){
         name: 'OMEGA',
         model: 'B1',
         mission: 'Robust Cognition',
-        spec: 'General reasoning under uncertainty & stress',
+        spec: 'General reasoning under uncertainty & stress'
         status: 'R-1',
       },
-      {
+     
         name: 'NOVA',
         model: 'C1',
         mission: 'Scalable Agent Integration',
