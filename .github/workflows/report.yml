@@ -1,0 +1,13 @@
+name: Nightly Build Report
+on:
+  schedule:
+    - cron: '0 3 * * *'  # every day at 3 AM UTC
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Vercel build summary
+        run: curl -s https://api.vercel.com/v6/deployments?teamId=$VERCEL_TEAM_ID \
+          -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+          | jq '.deployments[0] | {url, state, createdAt}'
+
