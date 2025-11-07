@@ -4,7 +4,7 @@ import Footer from '../components/Footer'
 
 export default function Home(){
   return (
-    <div className="min-h-screen text-white antialiased bg-gradient-to-b from-black via-slate-900 to-slate-800">
+    <div className="min-h-screen bg-gradient-to-b from-[#0a0a0a] via-[#1a1a1a] to-[#2e2e2e] text-white antialiased">
       <Header/>
       <main className="max-w-7xl mx-auto px-6 py-16">
         <section className="relative rounded-2xl overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 border border-white/6 p-8 lg:p-12">
