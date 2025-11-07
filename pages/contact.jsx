@@ -4,14 +4,14 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 // TODO: Replace with your real Formspree endpoint, e.g.:
-// const FORMSPREE_ENDPOINT = "https://formspree.io/f/yourFormId";
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvgvenno;
+// const FORMSPREE_ENDPOINT = "https://formspree.io/f/mwkajxyz";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/xvgvenno";
 
 export default function Contact() {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const [error, setError] = useState<string | null>(null);
+  const [status, setStatus] = useState('idle');
+  const [error, setError] = useState(null);
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e) {
     e.preventDefault();
     setStatus('submitting');
     setError(null);
@@ -142,7 +142,7 @@ export default function Contact() {
                 required
                 rows={5}
                 className="mt-1 w-full rounded-md border border-slate-200 px-3 py-2 text-sm resize-y focus:outline-none focus:ring-2 focus:ring-blue-500/70"
-                placeholder="Provide as much relevant detail as you can. For security-sensitive topics, do not include secrets here."
+                placeholder="Provide as much relevant detail as you can."
               />
             </div>
 
@@ -155,18 +155,17 @@ export default function Contact() {
                 {status === 'submitting' ? 'Sending…' : 'Send Message'}
               </button>
               <p className="text-[10px] text-slate-500">
-                This form uses Formspree. Replace the endpoint in the code with
-                your organization&apos;s Formspree URL.
+                Replace the endpoint in this code with your own Formspree URL.
               </p>
             </div>
 
             {status === 'success' && (
-              <p className="text-xs text-green-600">
-                Message sent. We&apos;ll get back to you if it matches our current focus.
+              <p className="text-xs text-green-600 mt-2">
+                Message sent. We’ll reply if it matches our current focus.
               </p>
             )}
             {status === 'error' && (
-              <p className="text-xs text-red-600">
+              <p className="text-xs text-red-600 mt-2">
                 {error || 'There was an issue sending your message.'}
               </p>
             )}
