@@ -1,4 +1,3 @@
-<h1 className="text-5xl font-extrabold mb-4">Join <span className="text-purple-600">Texas AGI Labs</span></h1>
 
 export default function Careers() {
   return (
