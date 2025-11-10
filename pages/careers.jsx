@@ -1,17 +1,11 @@
-
 export default function Careers() {
   return (
     <div className="min-h-screen bg-white text-gray-900">
       {/* Hero Section */}
       <section className="text-center py-20 bg-gradient-to-b from-white to-gray-50">
-        <motion.h1
-          className="text-5xl font-extrabold mb-4"
-          initial={{ opacity: 0, y: -30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
+        <h1 className="text-5xl font-extrabold mb-4">
           Join <span className="text-purple-600">Texas AGI Labs</span>
-        </motion.h1>
+        </h1>
         <p className="text-lg text-gray-600">
           Be part of our mission to build the intelligent future.
         </p>
@@ -28,7 +22,7 @@ export default function Careers() {
           <input
             type="hidden"
             name="access_key"
-            value="c9c85691-9980-4120-ac1b-0d652d611d11"
+            value="YOUR_WEB3FORMS_ACCESS_KEY"
           />
           <input
             type="hidden"
@@ -83,12 +77,15 @@ export default function Careers() {
               className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
             />
             <p className="text-sm text-gray-500 mt-1">
-              * Make sure your link is viewable (anyone with the link can access).
+              * Make sure your link is viewable (anyone with the link can
+              access).
             </p>
           </div>
 
           <div>
-            <label className="block font-semibold mb-1">Message / Cover Letter</label>
+            <label className="block font-semibold mb-1">
+              Message / Cover Letter
+            </label>
             <textarea
               name="message"
               rows="5"
