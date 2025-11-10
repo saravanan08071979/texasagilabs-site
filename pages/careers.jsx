@@ -67,23 +67,6 @@ export default function Careers() {
 
           <div>
             <label className="block font-semibold mb-1">
-              Resume Link (Google Drive / Dropbox)
-            </label>
-            <input
-              type="url"
-              name="resume_link"
-              placeholder="Paste your resume link here"
-              required
-              className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
-            />
-            <p className="text-sm text-gray-500 mt-1">
-              * Make sure your link is viewable (anyone with the link can
-              access).
-            </p>
-          </div>
-
-          <div>
-            <label className="block font-semibold mb-1">
               Message / Cover Letter
             </label>
             <textarea
@@ -92,6 +75,19 @@ export default function Careers() {
               placeholder="Tell us why you’d like to join Texas AGI Labs..."
               className="w-full border border-gray-300 rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-purple-500"
             ></textarea>
+          </div>
+
+          {/* Notice Section for Resume */}
+          <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 text-sm text-gray-700">
+            📎 <strong>Resume Submission:</strong>  
+            Please email your resume directly to{" "}
+            <a
+              href="mailto:hr.apac@texasagilabs.com"
+              className="text-purple-600 font-semibold underline"
+            >
+              hr.apac@texasagilabs.com
+            </a>{" "}
+            after submitting this form.
           </div>
 
           <button
