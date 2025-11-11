@@ -3,7 +3,7 @@ import Footer from '../components/Footer'
 
 export default function Home() {
   return (
-   <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-slate-950 text-white antialiased"> 
+   <divclassName="min-h-screen text-slate-900 antialiased bg-gradient-to-b from-blue-50 via-white to-gray-100"  
       <Header />
       <main className="max-w-7xl mx-auto px-6 py-16">
         {/* ======================== HERO SECTION ======================== */}
