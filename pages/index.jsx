@@ -7,8 +7,8 @@ export default function Home() {
       <Header />
       <main className="max-w-6xl mx-auto px-6 py-16">        
 {/* ======================== HERO SECTION ======================== */}
-       <section className="relative rounded-2xl overflow-hidden bg-slate-900/50 border border-slate-700 p-8 lg:p-12 shadow-lg backdrop-blur-sm">
-        <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-6 shadow-sm backdrop-blur-sm">
+       <section className="relative rounded-3xl overflow-hidden bg-white border border-slate-200 p-10 shadow-xl">
+          <div className="rounded-none bg-transparent border-0 p-0">
             <div>
               <h1 className="mt-2 text-4xl md:text-5xl font-extrabold tracking-tight">
                 Building Trusted AGI Systems for the World
