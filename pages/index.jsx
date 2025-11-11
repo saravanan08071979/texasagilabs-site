@@ -10,7 +10,7 @@ export default function Home() {
        <section className="relative rounded-2xl overflow-hidden bg-white/60 border border-slate-200 p-8 lg:p-12 shadow-lg backdrop-blur-md"> 
           <div className="bg-white/50 border border-slate-200 rounded-lg p-6 shadow-sm backdrop-blur-md">
             <div>
-              <h1 className="mt-2 text-4xl md:text-5xl font-extrabold tracking-tight">">
+              <h1 className="mt-2 text-4xl md:text-5xl font-extrabold tracking-tight">
                 Building Trusted AGI Systems for the World
               </h1>
               <p className="mt-4 text-slate-300 max-w-xl">
