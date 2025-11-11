@@ -5,27 +5,34 @@ export default function Careers() {
 
   if (submitted) {
     return (
-      <div className="flex flex-col items-center justify-center min-h-screen text-center">
-        <h1 className="text-3xl font-bold text-purple-600">Thank You!</h1>
-        <p className="text-gray-700 mt-3">
-          Your application has been submitted successfully. Our HR team will contact you soon.
+      <div className="flex flex-col items-center justify-center min-h-screen bg-white text-center px-6">
+        <h1 className="text-4xl font-extrabold text-purple-700 mb-3">
+          Thank You!
+        </h1>
+        <p className="text-gray-700 text-lg">
+          Your application has been submitted successfully. Our HR team will get in touch soon.
         </p>
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-white px-4">
-      <div className="max-w-md w-full">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-white via-gray-50 to-white px-4 py-10">
+      <div className="max-w-lg w-full bg-white rounded-3xl shadow-lg p-8 border border-gray-100">
         <h1 className="text-3xl font-bold text-center mb-6 text-purple-700">
-          Join Texas AGI Labs
+          Join <span className="text-gray-900">Texas AGI Labs</span>
         </h1>
+
+        <p className="text-center text-gray-600 mb-8">
+          We’re always looking for passionate engineers and innovators.  
+          Submit your application below or email your resume directly.
+        </p>
 
         <form
           action="https://api.web3forms.com/submit"
           method="POST"
           onSubmit={() => setSubmitted(true)}
-          className="space-y-4 bg-gray-50 p-6 rounded-2xl shadow-md"
+          className="space-y-5"
         >
           {/* Web3Forms Access Key */}
           <input
@@ -35,11 +42,7 @@ export default function Careers() {
           />
 
           {/* HR Email for notification */}
-          <input
-            type="hidden"
-            name="to"
-            value="hr.apac@texasagilabs.com"
-          />
+          <input type="hidden" name="to" value="hr.apac@texasagilabs.com" />
 
           <div>
             <label className="block text-sm font-medium text-gray-700">Name</label>
@@ -47,7 +50,7 @@ export default function Careers() {
               type="text"
               name="name"
               required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-purple-500 focus:border-purple-500"
             />
           </div>
 
@@ -57,7 +60,7 @@ export default function Careers() {
               type="email"
               name="email"
               required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-purple-500 focus:border-purple-500"
             />
           </div>
 
@@ -67,7 +70,7 @@ export default function Careers() {
               type="text"
               name="role"
               required
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-purple-500 focus:border-purple-500"
             />
           </div>
 
@@ -76,19 +79,19 @@ export default function Careers() {
             <textarea
               name="message"
               rows="4"
-              placeholder="Tell us about your experience or attach resume links."
-              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+              placeholder="Tell us briefly about your skills or attach resume links."
+              className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-purple-500 focus:border-purple-500"
             />
           </div>
 
           <button
             type="submit"
-            className="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg"
+            className="w-full bg-purple-600 hover:bg-purple-700 text-white font-semibold py-2.5 px-4 rounded-lg transition-colors duration-200"
           >
             Submit Application
           </button>
 
-          <p className="text-xs text-gray-500 text-center mt-2">
+          <p className="text-xs text-center text-gray-500 mt-2">
             Please email your resume directly to{" "}
             <a
               href="mailto:hr.apac@texasagilabs.com"
