@@ -7,7 +7,7 @@ export default function Home() {
       <Header />
       <main className="max-w-6xl mx-auto px-6 py-16">        
 {/* ======================== HERO SECTION ======================== */}
-       <section className="relative rounded-3xl overflow-hidden bg-white border border-slate-200 p-10 shadow-xl">
+       <section className="relative rounded-3xl overflow-hidden bg-slate-900/40 border border-white/10 p-10 shadow-xl backdrop-blur-md">
           <div className="rounded-none bg-transparent border-0 p-0">
             <div>
               <h1 className="mt-2 text-4xl md:text-5xl font-extrabold tracking-tight">
