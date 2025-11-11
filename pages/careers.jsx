@@ -1,143 +1,105 @@
 import { useState } from "react";
 
 export default function Careers() {
-  const [email, setEmail] = useState("");
-  const [code, setCode] = useState("");
-  const [verified, setVerified] = useState(false);
-  const [tokenSent, setTokenSent] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
-  const sendToken = async () => {
-    setLoading(true);
-    const res = await fetch("/api/send-token", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email }),
-    });
-    const data = await res.json();
-    setLoading(false);
-    if (data.success) {
-      setTokenSent(true);
-      alert("Verification code sent to your email.");
-    } else {
-      alert(data.error || "Failed to send code.");
-    }
-  };
-
-  const verifyToken = async () => {
-    const res = await fetch("/api/verify-token", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, code }),
-    });
-    const data = await res.json();
-    if (data.success) {
-      setVerified(true);
-      alert("Email verified successfully!");
-    } else {
-      alert("Invalid code, please try again.");
-    }
-  };
+  if (submitted) {
+    return (
+      <div className="flex flex-col items-center justify-center min-h-screen text-center">
+        <h1 className="text-3xl font-bold text-purple-600">Thank You!</h1>
+        <p className="text-gray-700 mt-3">
+          Your application has been submitted successfully. Our HR team will contact you soon.
+        </p>
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen bg-white text-gray-900">
-      <section className="text-center py-20">
-        <h1 className="text-5xl font-extrabold mb-4">
-          Join <span className="text-purple-600">Texas AGI Labs</span>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-white px-4">
+      <div className="max-w-md w-full">
+        <h1 className="text-3xl font-bold text-center mb-6 text-purple-700">
+          Join Texas AGI Labs
         </h1>
-        <p className="text-lg text-gray-600">
-          Be part of our mission to build the intelligent future.
-        </p>
-      </section>
 
-      <section className="max-w-2xl mx-auto bg-white shadow-xl rounded-2xl p-10 mb-16 border border-gray-100">
         <form
           action="https://api.web3forms.com/submit"
           method="POST"
-          className="space-y-6"
+          onSubmit={() => setSubmitted(true)}
+          className="space-y-4 bg-gray-50 p-6 rounded-2xl shadow-md"
         >
-          <input type="hidden" name="access_key" value="c9c85691-9980-4120-ac1b-0d652d611d11" />
-          <input type="hidden" name="redirect" value="https://texasagilabs.com/thank-you" />
+          {/* Web3Forms Access Key */}
+          <input
+            type="hidden"
+            name="access_key"
+            value=c9c85691-9980-4120-ac1b-0d652d611d11""
+          />
 
-          <h2 className="text-2xl font-bold text-center mb-6">Apply for a Role</h2>
+          {/* HR Email for notification */}
+          <input
+            type="hidden"
+            name="to"
+            value="hr.apac@texasagilabs.com"
+          />
 
           <div>
-            <label className="block font-semibold mb-1">Full Name</label>
-            <input type="text" name="name" required className="w-full border border-gray-300 rounded-lg p-3" />
+            <label className="block text-sm font-medium text-gray-700">Name</label>
+            <input
+              type="text"
+              name="name"
+              required
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+            />
           </div>
 
-          {/* Email Verification Section */}
           <div>
-            <label className="block font-semibold mb-1">Email Address</label>
+            <label className="block text-sm font-medium text-gray-700">Email</label>
             <input
               type="email"
               name="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full border border-gray-300 rounded-lg p-3"
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
             />
-            {!tokenSent && (
-              <button
-                type="button"
-                onClick={sendToken}
-                disabled={loading}
-                className="mt-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"
-              >
-                {loading ? "Sending..." : "Send Verification Code"}
-              </button>
-            )}
-          </div>
-
-          {tokenSent && !verified && (
-            <div>
-              <label className="block font-semibold mb-1">Enter Verification Code</label>
-              <input
-                type="text"
-                value={code}
-                onChange={(e) => setCode(e.target.value)}
-                className="w-full border border-gray-300 rounded-lg p-3"
-              />
-              <button
-                type="button"
-                onClick={verifyToken}
-                className="mt-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
-              >
-                Verify Code
-              </button>
-            </div>
-          )}
-
-          <div>
-            <label className="block font-semibold mb-1">Role Applying For</label>
-            <input type="text" name="role" placeholder="e.g., AI Engineer" required className="w-full border border-gray-300 rounded-lg p-3" />
           </div>
 
           <div>
-            <label className="block font-semibold mb-1">Message / Cover Letter</label>
-            <textarea name="message" rows="5" placeholder="Tell us why you’d like to join Texas AGI Labs…" className="w-full border border-gray-300 rounded-lg p-3"></textarea>
+            <label className="block text-sm font-medium text-gray-700">Role Applying For</label>
+            <input
+              type="text"
+              name="role"
+              required
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+            />
           </div>
 
-          <div className="bg-purple-50 border border-purple-200 rounded-lg p-4 text-sm text-gray-700">
-            📎 <strong>Resume Submission:</strong> Please email your resume directly to{" "}
-            <a href="mailto:hr.apac@texasagilabs.com" className="text-purple-600 font-semibold underline">
-              hr.apac@texasagilabs.com
-            </a>.
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Message</label>
+            <textarea
+              name="message"
+              rows="4"
+              placeholder="Tell us about your experience or attach resume links."
+              className="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"
+            />
           </div>
 
           <button
             type="submit"
-            disabled={!verified}
-            className={`w-full font-bold py-3 rounded-lg transition duration-300 ${
-              verified
-                ? "bg-purple-600 text-white hover:bg-purple-700"
-                : "bg-gray-300 text-gray-600 cursor-not-allowed"
-            }`}
+            className="w-full bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-4 rounded-lg"
           >
             Submit Application
           </button>
+
+          <p className="text-xs text-gray-500 text-center mt-2">
+            Please email your resume directly to{" "}
+            <a
+              href="mailto:hr.apac@texasagilabs.com"
+              className="text-purple-600 font-medium underline"
+            >
+              hr.apac@texasagilabs.com
+            </a>{" "}
+            after submitting this form.
+          </p>
         </form>
-      </section>
+      </div>
     </div>
   );
 }
