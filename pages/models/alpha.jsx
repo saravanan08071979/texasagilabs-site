@@ -1,4 +1,5 @@
 // pages/models/alpha.jsx
+import Link from 'next/link'; // <-- added
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
@@ -7,6 +8,14 @@ export default function Alpha() {
     <div className="min-h-screen bg-gradient-to-b from-black via-slate-900 to-slate-950 text-white antialiased">
       <Header />
       <main className="max-w-5xl mx-auto px-6 py-16">
+
+        {/* Back link to the index of models */}
+        <div className="mb-6">
+          <Link href="/models" className="text-sm text-violet-300 hover:text-violet-200">
+            ← Back to Models
+          </Link>
+        </div>
+
         {/* Hero */}
         <section>
           <p className="text-xs font-mono tracking-[0.2em] text-blue-400/70 uppercase">
@@ -25,9 +34,7 @@ export default function Alpha() {
 
         {/* Mission Role */}
         <section className="mt-10">
-          <h2 className="text-2xl font-semibold text-blue-300">
-            Mission Profile
-          </h2>
+          <h2 className="text-2xl font-semibold text-blue-300">Mission Profile</h2>
           <p className="mt-3 text-slate-300 max-w-3xl">
             ALPHA is designed for organizations that require intelligent control,
             planning, and decision support where failure is not an option:
@@ -44,32 +51,24 @@ export default function Alpha() {
 
         {/* Core Capabilities */}
         <section className="mt-10">
-          <h2 className="text-2xl font-semibold text-blue-300">
-            Core Capabilities
-          </h2>
+          <h2 className="text-2xl font-semibold text-blue-300">Core Capabilities</h2>
           <div className="mt-4 grid gap-4 md:grid-cols-3 text-sm">
             <div className="bg-white/5 border border-blue-900/40 rounded-xl p-4">
-              <h3 className="font-semibold text-blue-200 text-sm">
-                Constrained Autonomy
-              </h3>
+              <h3 className="font-semibold text-blue-200 text-sm">Constrained Autonomy</h3>
               <p className="mt-2 text-slate-300">
                 Decisions are computed within cryptographically enforced policy
                 bounds and domain-specific guardrails.
               </p>
             </div>
             <div className="bg-white/5 border border-blue-900/40 rounded-xl p-4">
-              <h3 className="font-semibold text-blue-200 text-sm">
-                Online Risk Scoring
-              </h3>
+              <h3 className="font-semibold text-blue-200 text-sm">Online Risk Scoring</h3>
               <p className="mt-2 text-slate-300">
                 Every action is assigned a dynamic risk index based on context,
                 impact surface, and deviation from expected behavior.
               </p>
             </div>
             <div className="bg-white/5 border border-blue-900/40 rounded-xl p-4">
-              <h3 className="font-semibold text-blue-200 text-sm">
-                Incident-Aware Memory
-              </h3>
+              <h3 className="font-semibold text-blue-200 text-sm">Incident-Aware Memory</h3>
               <p className="mt-2 text-slate-300">
                 Safety-relevant events are retained in structured memory for
                 post-incident analysis and future policy updates.
@@ -80,9 +79,7 @@ export default function Alpha() {
 
         {/* Safety Integration */}
         <section className="mt-10">
-          <h2 className="text-2xl font-semibold text-blue-300">
-            Safety Architecture & Integration
-          </h2>
+          <h2 className="text-2xl font-semibold text-blue-300">Safety Architecture & Integration</h2>
           <p className="mt-3 text-slate-300 max-w-3xl">
             ALPHA is supervised by a layered control stack: sandboxing,
             deterministic policy execution, anomaly detectors, and external
@@ -97,9 +94,7 @@ export default function Alpha() {
 
         {/* Evaluation */}
         <section className="mt-10">
-          <h2 className="text-2xl font-semibold text-blue-300">
-            Evaluation & Certification
-          </h2>
+          <h2 className="text-2xl font-semibold text-blue-300">Evaluation & Certification</h2>
           <p className="mt-3 text-slate-300 max-w-3xl">
             ALPHA undergoes adversarial testing, red-team evaluation, and
             scenario-based validation before any production deployment.
@@ -111,22 +106,30 @@ export default function Alpha() {
           </ul>
         </section>
 
-        {/* CTA */}
+        {/* CTA + cross-links */}
         <section className="mt-12 mb-4">
-          <h2 className="text-xl font-semibold text-blue-300">
-            Explore ALPHA
-          </h2>
+          <h2 className="text-xl font-semibold text-blue-300">Explore ALPHA</h2>
           <p className="mt-2 text-slate-300 max-w-3xl">
             Access to full ALPHA documentation, evaluation artifacts, and
             deployment pilots is available to selected partners.
           </p>
-          <div className="mt-4 flex gap-3 text-sm">
+          <div className="mt-4 flex flex-wrap gap-3 text-sm">
             <a className="px-4 py-2 rounded-md bg-white text-black font-semibold" href="#">
               Request ALPHA Briefing
             </a>
-            <a className="px-4 py-2 rounded-md border border-blue-500/60 text-blue-300" href="/safety">
+            <Link className="px-4 py-2 rounded-md border border-blue-500/60 text-blue-300" href="/safety">
               View Safety Framework
-            </a>
+            </Link>
+
+            {/* cross-links to other model pages */}
+            <Link className="px-4 py-2 rounded-md border border-white/10 bg-white/5 hover:border-violet-400/60 transition"
+                  href="/models/omega">
+              View OMEGA
+            </Link>
+            <Link className="px-4 py-2 rounded-md border border-white/10 bg-white/5 hover:border-violet-400/60 transition"
+                  href="/models/nova">
+              View NOVA
+            </Link>
           </div>
         </section>
       </main>
@@ -134,4 +137,5 @@ export default function Alpha() {
     </div>
   );
 }
+
 
