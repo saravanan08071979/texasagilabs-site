@@ -7,30 +7,22 @@ export default function Home() {
       <Header />
       <main className="max-w-6xl mx-auto px-6 py-16">        
 {/* ======================== HERO SECTION ======================== */}
-       <section className="relative rounded-3xl overflow-hidden bg-slate-900/40 border border-white/10 p-10 shadow-xl backdrop-blur-md">
-          <div className="rounded-none bg-transparent border-0 p-0">
-            <div>
-              <h1 className="mt-2 text-4xl md:text-5xl font-extrabold tracking-tight">
-                Building Trusted AGI Systems for the World
-              </h1>
-              <p className="mt-4 text-slate-300 max-w-xl">
-                Researching and aligning AGI systems to unlock progress while ensuring
-                long-term safety and global benefit.
-              </p>
-              <div className="mt-6 flex gap-3">
-                <a
-                  href="/models/alpha"
-                  className="px-5 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-md font-semibold transition-colors"
-                >
-                  Explore Models
-                </a>
-                <a
-                  href="/about"
-                  className="px-5 py-3 border border-purple-300 text-purple-700 rounded-md font-medium hover:bg-purple-50 transition-colors"
-                >
-                  Research Portfolio
-                </a>
-              </div>
+       <section className="relative rounded-3xl overflow-hidden bg-slate-900/40 border border-white/10 p-10 lg:p-14 shadow-xl backdrop-blur-md">
+  <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
+    Building Trusted AGI Systems for the World
+  </h1>
+  <p className="mt-4 max-w-2xl text-slate-300">
+    Researching and aligning AGI systems to unlock progress while ensuring long-term safety and global benefit.
+  </p>
+
+  <div className="mt-6 flex gap-4">
+    <a href="/models" className="inline-flex items-center rounded-xl px-5 py-3 text-sm font-medium bg-violet-600 text-white hover:bg-violet-500 transition">
+      Explore Models
+    </a>
+    <a href="/research" className="inline-flex items-center rounded-xl px-5 py-3 text-sm font-medium border border-violet-400/50 text-violet-200 hover:bg-violet-400/10 transition">
+      Research Portfolio
+    </a>
+  </div>
               <div className="mt-6 text-slate-500 text-sm">
                 Live countdown: <span className="font-mono">T-72:04:21</span>
               </div>
