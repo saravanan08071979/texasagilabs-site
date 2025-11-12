@@ -8,13 +8,15 @@ export default function Home() {
       <main className="max-w-6xl mx-auto px-6 py-16">        
 {/* ======================== HERO SECTION ======================== */}
        {/* Hero */}
-<section className="relative rounded-3xl overflow-hidden bg-slate-900/40 border border-white/10 p-10 lg:p-14 shadow-xl backdrop-blur-md">
+{/* Hero (no card) */}
+<section className="px-6 lg:px-10 py-12 lg:py-16">
   <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
     Building Trusted AGI Systems for the World
   </h1>
 
   <p className="mt-4 max-w-2xl text-slate-300">
-    Researching and aligning AGI systems to unlock progress while ensuring long-term safety and global benefit.
+    Researching and aligning AGI systems to unlock progress while ensuring long-term
+    safety and global benefit.
   </p>
 
   <div className="mt-6 flex gap-4">
@@ -26,12 +28,12 @@ export default function Home() {
     </a>
   </div>
 
-  <div className="mt-6 text-slate-500 text-sm">
+  <div className="mt-6 text-slate-400 text-sm">
     Live countdown: <span className="font-mono">T-72:04:21</span>
   </div>
 
   <div className="relative mt-10">
-    <div className="aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10 p-6 shadow-sm flex items-center justify-center text-slate-400 select-none">
+    <div className="aspect-video rounded-2xl overflow-hidden bg-white/5 border border-white/10 p-6 flex items-center justify-center text-slate-400 select-none">
       [AI Neural Network Visualization]
     </div>
   </div>
