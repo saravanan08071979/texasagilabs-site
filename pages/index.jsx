@@ -20,7 +20,7 @@ export default function Home() {
   </p>
 
   <div className="mt-6 flex gap-4">
-    <a href="/models" className="inline-flex items-center rounded-xl px-5 py-3 text-sm font-medium bg-violet-600 text-white hover:bg-violet-500 transition">
+    <a href="/models/alpha" className="inline-flex items-center rounded-xl px-5 py-3 text-sm font-medium bg-violet-600 text-white hover:bg-violet-500 transition">
       Explore Models
     </a>
     <a href="/research" className="inline-flex items-center rounded-xl px-5 py-3 text-sm font-medium border border-violet-400/50 text-violet-200 hover:bg-violet-400/10 transition">
