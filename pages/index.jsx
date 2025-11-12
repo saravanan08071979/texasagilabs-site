@@ -7,10 +7,12 @@ export default function Home() {
       <Header />
       <main className="max-w-6xl mx-auto px-6 py-16">        
 {/* ======================== HERO SECTION ======================== */}
-       <section className="relative rounded-3xl overflow-hidden bg-slate-900/40 border border-white/10 p-10 lg:p-14 shadow-xl backdrop-blur-md">
+       {/* Hero */}
+<section className="relative rounded-3xl overflow-hidden bg-slate-900/40 border border-white/10 p-10 lg:p-14 shadow-xl backdrop-blur-md">
   <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight text-white">
     Building Trusted AGI Systems for the World
   </h1>
+
   <p className="mt-4 max-w-2xl text-slate-300">
     Researching and aligning AGI systems to unlock progress while ensuring long-term safety and global benefit.
   </p>
@@ -23,19 +25,17 @@ export default function Home() {
       Research Portfolio
     </a>
   </div>
-              <div className="mt-6 text-slate-500 text-sm">
-                Live countdown: <span className="font-mono">T-72:04:21</span>
-              </div>
-            </div>
 
-            <div className="relative mt-10">
-              <div className="aspect-video rounded-xl overflow-hidden bg-white/60 border border-slate-200 p-6 shadow-sm flex items-center justify-center text-slate-500 select-none backdrop-blur-md">
-                [AI Neural Network Visualization]
-              </div>
-            </div>
-          </div>
-        </section>
+  <div className="mt-6 text-slate-500 text-sm">
+    Live countdown: <span className="font-mono">T-72:04:21</span>
+  </div>
 
+  <div className="relative mt-10">
+    <div className="aspect-video rounded-xl overflow-hidden bg-white/5 border border-white/10 p-6 shadow-sm flex items-center justify-center text-slate-400 select-none">
+      [AI Neural Network Visualization]
+    </div>
+  </div>
+</section>
         {/* ======================== AGI SYSTEMS SECTION ======================== */}
         <section id="vehicles" className="mt-20 relative">
           <div
